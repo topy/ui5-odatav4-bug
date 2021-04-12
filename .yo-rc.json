@@ -1,0 +1,16 @@
+{
+  "generator-easy-ui5": {
+    "projectname": "UI5DummyApp",
+    "namespace": "dummy",
+    "platform": "Static webserver",
+    "viewtype": "XML",
+    "viewname": "MainView",
+    "ui5libs": "Local resources (OpenUI5)",
+    "newdir": false,
+    "namespaceURI": "dummy",
+    "uimodules": [
+      "uimodule"
+    ],
+    "setupCompleted": true
+  }
+}
