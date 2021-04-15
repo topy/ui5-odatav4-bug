@@ -1,12 +1,19 @@
  <mvc:View controllerName="dummy.UI5DummyApp.controller.MainView"
   displayBlock="true"
   xmlns="sap.m"
-  xmlns:mvc="sap.ui.core.mvc">
-  <App id="idAppControl" >
-    <pages>
-      <Page title="{i18n>title}">
-        <content></content>
-      </Page>
-    </pages>
-  </App>
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:f="sap.f">
+  <f:DynamicPage>
+    <f:content>
+      <List
+        items="{/People}">
+        <items>
+          <StandardListItem type="Navigation"
+            press=".onListItemPress"
+            title="{FirstName}"
+            />
+        </items>
+      </List>
+    </f:content>
+  </f:DynamicPage>
 </mvc:View>

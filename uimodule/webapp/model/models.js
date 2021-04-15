@@ -9,6 +9,12 @@ sap.ui.define([
       var oModel = new JSONModel(Device);
       oModel.setDefaultBindingMode("OneWay");
       return oModel;
+    },
+    createAppViewModel() {
+      const oModel = new JSONModel({
+        layout: "OneColumn"
+      })
+      return oModel
     }
   };
 });

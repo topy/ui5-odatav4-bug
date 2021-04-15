@@ -8,7 +8,17 @@
       "version": "1.0.0"
     },
     "title": "{{appTitle}}",
-    "description": "{{appDescription}}"
+    "description": "{{appDescription}}",
+    "dataSources": {
+      "main": {
+        "uri": "v1/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    }
   },
   "sap.ui": {
     "technology": "UI5",
@@ -29,7 +39,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "rootView": {
-      "viewName": "dummy.UI5DummyApp.view.MainView",
+      "viewName": "dummy.UI5DummyApp.view.App",
       "type": "XML",
       "async": true,
       "id": "idAppControl"
@@ -39,7 +49,9 @@
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
-        "sap.ui.layout": {}
+        "sap.ui.layout": {},
+        "sap.f": {},
+        "sap.uxap": {}
       }
     },
     "contentDensities": {
@@ -51,6 +63,14 @@
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "dummy.UI5DummyApp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "main",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "groupId": "$direct"
         }
       }
     },
@@ -67,24 +87,35 @@
         "viewType": "XML",
         "viewPath": "dummy.UI5DummyApp.view",
         "controlId": "idAppControl",
-        "controlAggregation": "pages",
+        "controlAggregation": "beginColumnPages",
+        "targetAggregation": "FlexibleColumnLayout",
         "async": true
       },
       "routes": [
         {
           "name": "RouteMainView",
-          "pattern": "RouteMainView",
+          "pattern": "",
           "target": [
             "TargetMainView"
           ]
+        },
+        {
+          "name": "RouteDetailView",
+          "pattern": "RouteDetailView/{UserName}",
+          "target": ["TargetMainView", "TargetDetailView"]
         }
       ],
       "targets": {
         "TargetMainView": {
           "viewType": "XML",
           "viewLevel": 1,
-          "viewId": "idAppControl",
           "viewName": "MainView"
+        },
+        "TargetDetailView": {
+          "viewType": "XML",
+          "viewLevel": 1,
+          "viewName": "DetailView",
+          "controlAggregation": "midColumnPages"
         }
       }
     }
