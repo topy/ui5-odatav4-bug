@@ -7,15 +7,15 @@
     <f:DynamicPage>
         <f:content>
             <!-- This does not work -->
-            <!-- <List headerText="Friends"
+            <List headerText="Friends"
                 items="{Friends}">
                 <items>
                     <StandardListItem
                         title="{FirstName} {LastName}"/>
                 </items>
-            </List> -->
+            </List>
             <!-- This works -->
-            <List headerText="Friends"
+            <!-- <List headerText="Friends"
                 items="{
                     path: 'Friends',
                     parameters: {
@@ -24,7 +24,7 @@
                 <items>
                     <StandardListItem title="{FirstName} {LastName}" />
                 </items>
-            </List>
+            </List> -->
         </f:content>
     </f:DynamicPage>
 </mvc:View>
