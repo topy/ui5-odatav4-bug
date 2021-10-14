@@ -42,7 +42,7 @@
       "viewName": "dummy.UI5DummyApp.view.App",
       "type": "XML",
       "async": true,
-      "id": "idAppControl"
+      "id": "app"
     },
     "dependencies": {
       "minUI5Version": "1.60.0",
@@ -86,23 +86,21 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "viewPath": "dummy.UI5DummyApp.view",
-        "controlId": "idAppControl",
-        "controlAggregation": "beginColumnPages",
-        "targetAggregation": "FlexibleColumnLayout",
+        "controlId": "mainPage",
+        "controlAggregation": "content",
+        "clearControlAggregation": true,
         "async": true
       },
       "routes": [
         {
-          "name": "RouteMainView",
+          "name": "RouteHomeView",
           "pattern": "",
-          "target": [
-            "TargetMainView"
-          ]
+          "target": "TargetDetailHome"
         },
         {
-          "name": "RouteDetailView",
-          "pattern": "RouteDetailView/{UserName}",
-          "target": ["TargetMainView", "TargetDetailView"]
+          "name": "RouteTableView",
+          "pattern": "Table",
+          "target": "TargetDetailTable"
         }
       ],
       "targets": {
@@ -111,11 +109,13 @@
           "viewLevel": 1,
           "viewName": "MainView"
         },
-        "TargetDetailView": {
+        "TargetDetailHome": {
           "viewType": "XML",
-          "viewLevel": 1,
-          "viewName": "DetailView",
-          "controlAggregation": "midColumnPages"
+          "viewName": "HomeView"
+        },
+        "TargetDetailTable": {
+          "viewType": "XML",
+          "viewName": "TableView"
         }
       }
     }
