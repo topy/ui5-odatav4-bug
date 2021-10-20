@@ -1,20 +1,24 @@
 {
   "name": "UI5DummyApp",
+  "homepage": "https://topy.github.io/ui5-odatav4-bug",
   "version": "0.0.1",
   "scripts": {
     "start": "ui5 serve --config=uimodule/ui5.yaml",
-    "build:ui": "run-s  build:uimodule",
+    "build:ui": "run-s build:uimodule",
     "test": "run-s lint karma",
     "karma-ci": "karma start karma-ci.conf.js",
     "clearCoverage": "shx rm -rf coverage",
     "karma": "run-s clearCoverage karma-ci",
     "lint": "eslint .",
     "serve:uimodule": "ui5 serve --config=uimodule/ui5.yaml",
-    "build:uimodule": "ui5 build --config=uimodule/ui5.yaml --clean-dest --a --dest uimodule/dist --include-task=generateManifestBundle"
+    "build:uimodule": "ui5 build --config=uimodule/ui5.yaml --clean-dest --a --dest uimodule/dist --include-task=generateManifestBundle",
+    "predeploy": "run-s build:ui",
+    "deploy": "gh-pages -d uimodule/dist"
   },
   "devDependencies": {
     "@ui5/cli": "^2.8.1",
     "eslint": "^7.18.0",
+    "gh-pages": "^3.2.3",
     "karma": "^6.0.1",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.3",
@@ -29,5 +33,6 @@
       "ui5-middleware-livereload",
       "ui5-middleware-simpleproxy"
     ]
-  }
+  },
+  "dependencies": {}
 }
