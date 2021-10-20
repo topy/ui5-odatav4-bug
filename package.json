@@ -1,7 +1,7 @@
 {
-  "name": "UI5DummyApp",
+  "name": "ui5-dummy-app",
   "homepage": "https://topy.github.io/ui5-odatav4-bug",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "start": "ui5 serve --config=uimodule/ui5.yaml",
     "build:ui": "run-s build:uimodule",
