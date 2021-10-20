@@ -1,0 +1,1 @@
+sap.ui.define(["dummy/UI5DummyApp/controller/BaseController"],function(e){"use strict";return e.extend("dummy.UI5DummyApp.controller.DetailView",{navToHome(){this.getRouter().navTo("RouteHomeView",{},true)},navToTable(){this.getRouter().navTo("RouteTableView",{},true)}})});

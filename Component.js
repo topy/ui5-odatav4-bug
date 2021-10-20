@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/Device","dummy/UI5DummyApp/model/models"],function(e,t,i){"use strict";return e.extend("dummy.UI5DummyApp.Component",{metadata:{manifest:"json"},init:function(){e.prototype.init.apply(this,arguments);this.getRouter().initialize();this.setModel(i.createDeviceModel(),"device");this.setModel(i.createAppViewModel(),"appView")}})});

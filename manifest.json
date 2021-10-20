@@ -1,0 +1,123 @@
+{
+  "_version": "1.21.0",
+  "sap.app": {
+    "id": "dummy.UI5DummyApp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "dataSources": {
+      "main": {
+        "uri": "v1/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "rootView": {
+      "viewName": "dummy.UI5DummyApp.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "dependencies": {
+      "minUI5Version": "1.60.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {},
+        "sap.f": {},
+        "sap.uxap": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "dummy.UI5DummyApp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "main",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "groupId": "$direct"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "dummy.UI5DummyApp.view",
+        "controlId": "mainPage",
+        "controlAggregation": "content",
+        "clearControlAggregation": true,
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "RouteHomeView",
+          "pattern": "",
+          "target": "TargetDetailHome"
+        },
+        {
+          "name": "RouteTableView",
+          "pattern": "Table",
+          "target": "TargetDetailTable"
+        }
+      ],
+      "targets": {
+        "TargetMainView": {
+          "viewType": "XML",
+          "viewLevel": 1,
+          "viewName": "MainView"
+        },
+        "TargetDetailHome": {
+          "viewType": "XML",
+          "viewName": "HomeView"
+        },
+        "TargetDetailTable": {
+          "viewType": "XML",
+          "viewName": "TableView"
+        }
+      }
+    }
+  }
+}

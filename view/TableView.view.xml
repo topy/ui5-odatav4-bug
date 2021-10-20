@@ -1,0 +1,43 @@
+<mvc:View controllerName="dummy.UI5DummyApp.controller.DetailView"
+          xmlns="sap.m"
+          xmlns:mvc="sap.ui.core.mvc">
+  <Button text="Go to Home-View" press="navToHome" />
+    <Table
+      id="peopleTable"
+      inset="false"
+      items="{
+          path: '/People',
+          sorter: {
+            path: 'LastName'
+          },
+          parameters : {
+            $count : true,
+            $$patchWithoutSideEffects : true
+          },
+          events : {
+            dataReceived: '.onDataEvents',
+            dataRequested: '.onDataEvents'
+          },
+          templateShareable: true
+        }"
+      class="sapFDynamicPageAlignContent"
+      width="auto"
+      growing="true"
+      growingScrollToLoad="true"
+      growingThreshold="5">
+      <columns>
+        <Column>
+          <Text text="People"/>
+        </Column>
+      </columns>
+      <items>
+        <ColumnListItem>
+          <cells>
+            <ObjectIdentifier title="{FirstName} {LastName}" text="{UserName}"/>
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
+
+
+</mvc:View>
