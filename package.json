@@ -1,9 +1,8 @@
 {
   "name": "ui5-dummy-app",
-  "homepage": "https://topy.github.io/ui5-odatav4-bug",
   "version": "1.0.0",
   "scripts": {
-    "start": "ui5 serve --config=uimodule/ui5.yaml",
+    "start": "ui5 serve --config=uimodule/ui5.yaml --port $PORT --accept-remote-connections",
     "build:ui": "run-s build:uimodule",
     "test": "run-s lint karma",
     "karma-ci": "karma start karma-ci.conf.js",
