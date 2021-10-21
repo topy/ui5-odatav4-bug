@@ -15,7 +15,7 @@
     "predeploy": "run-s build:ui",
     "deploy": "gh-pages -d uimodule/dist"
   },
-  "devDependencies": {
+  "dependencies": {
     "@ui5/cli": "^2.8.1",
     "eslint": "^7.18.0",
     "gh-pages": "^3.2.3",
@@ -33,6 +33,5 @@
       "ui5-middleware-livereload",
       "ui5-middleware-simpleproxy"
     ]
-  },
-  "dependencies": {}
+  }
 }
